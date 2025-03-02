@@ -88,6 +88,7 @@ python manage.py runserver
 ```bash
 cd frontend
 npm install
+npm install react-router-dom 
 ```
 
 #### Start the development server
