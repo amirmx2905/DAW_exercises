@@ -44,7 +44,7 @@ InvestigadoresWebApp/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/InvestigadoresWebApp.git
+git clone https://github.com/amirmx2905/investigadoresWebApp.git
 cd InvestigadoresWebApp
 ```
 
@@ -73,6 +73,8 @@ pip install -r requirements.txt
 ```
 
 #### Apply migrations and run the server
+
+Make sure you are in the root directory of the project (where `manage.py` is located) before running these commands:
 
 ```bash
 python manage.py migrate
