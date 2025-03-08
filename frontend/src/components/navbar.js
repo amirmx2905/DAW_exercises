@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Modulo from "./modulo";
+import Alumnos from "./alumnos"; // Add this import
 
 const Navbar = () => {
   return (
@@ -38,6 +39,12 @@ const Navbar = () => {
             >
               Reportes
             </Link>
+            <Link
+              to="/alumnos"
+              className="text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Alumnos
+            </Link>
           </div>
           <div>
             <Link
@@ -51,6 +58,7 @@ const Navbar = () => {
       </div>
       <Routes>
         <Route path="/:nombre" element={<Modulo />} />
+        <Route path="/alumnos" element={<Alumnos />} />
       </Routes>
     </Router>
   );

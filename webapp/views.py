@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Alumno
+from .serializers import AlumnoSerializer
 
 def menu(request):
     return render(request, 'menu.html')
@@ -17,3 +20,7 @@ def reportes(request):
 
 def salir(request):
     return render(request, 'modulo.html', {'modulo': 'Salir'})
+
+class AlumnoViewSet(viewsets.ModelViewSet):
+    queryset = Alumno.objects.all()
+    serializer_class = AlumnoSerializer
