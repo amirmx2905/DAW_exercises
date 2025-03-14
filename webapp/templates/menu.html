@@ -1,16 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Menú Principal</title>
-</head>
-<body>
-    <h1>Menú Principal</h1>
-    <ul>
-        <li><a href="{% url 'archivo' %}">Archivo</a></li>
-        <li><a href="{% url 'catalogos' %}">Catálogos</a></li>
-        <li><a href="{% url 'procesos' %}">Procesos</a></li>
-        <li><a href="{% url 'reportes' %}">Reportes</a></li>
-        <li><a href="{% url 'salir' %}">Salir</a></li>
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Investigadores App{% endblock %}
+
+{% block content %}
+    <h1>Bienvenido a la Aplicación de Investigadores</h1>
+    <p>Seleccione una opción del menú superior para comenzar.</p>
+    
+    <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h3>Archivo</h3>
+            <p>Gestione archivos y configuraciones</p>
+            <a href="{% url 'archivo' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Archivo</a>
+        </div>
+        
+        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h3>Catálogos</h3>
+            <p>Administre los catálogos del sistema</p>
+            <a href="{% url 'catalogos' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Catálogos</a>
+        </div>
+        
+        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h3>Alumnos</h3>
+            <p>Gestione la información de los alumnos</p>
+            <a href="{% url 'alumnos' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Alumnos</a>
+        </div>
+        
+        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h3>Procesos</h3>
+            <p>Ejecute procesos y operaciones</p>
+            <a href="{% url 'procesos' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Procesos</a>
+        </div>
+        
+        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h3>Reportes</h3>
+            <p>Visualice y genere reportes</p>
+            <a href="{% url 'reportes' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Reportes</a>
+        </div>
+    </div>
+{% endblock %}

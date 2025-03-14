@@ -12,6 +12,6 @@ class Alumno(models.Model):
         return f"{self.nombre} {self.apellido} ({self.matricula})"
     
     class Meta:
-        managed = False  # Since we created the table manually
-        db_table = 'database"."alumnos'  # Use this format for specifying schema
+        managed = False
+        db_table = 'database"."alumnos'
         app_label = 'webapp'

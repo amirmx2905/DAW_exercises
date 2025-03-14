@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Modulo de {{ modulo }}</title>
-</head>
-<body>
-    <h1>Modulo de {{ modulo }}</h1>
-    <a href="{% url 'menu' %}">Regresar al Menú</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}{{ modulo }} - Investigadores App{% endblock %}
+
+{% block content %}
+    <h1>Módulo: {{ modulo }}</h1>
+    <p>Bienvenido al módulo de {{ modulo }}.</p>
+    
+    {% if modulo == 'Archivo' %}
+        <p>Aquí puede gestionar configuraciones y archivos del sistema.</p>
+    {% elif modulo == 'Catálogos' %}
+        <p>Aquí puede administrar los diferentes catálogos de la aplicación.</p>
+    {% elif modulo == 'Procesos' %}
+        <p>Aquí puede ejecutar los diferentes procesos disponibles.</p>
+    {% elif modulo == 'Reportes' %}
+        <p>Aquí puede generar e imprimir diferentes reportes.</p>
+    {% elif modulo == 'Salir' %}
+        <p>¿Está seguro que desea salir del sistema?</p>
+        <button style="background-color: #e74c3c; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">Cerrar sesión</button>
+    {% endif %}
+{% endblock %}
