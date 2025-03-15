@@ -24,8 +24,8 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/investigadores-app.git
-cd investigadores-app
+git clone https://github.com/amirmx2905/djangoWebApp.git
+cd djangoWebApp
 ```
 
 ### 2. Crear y activar el entorno virtual
