@@ -29,6 +29,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'webapp.middleware.AuthRedirectMiddleware',  # Añadido
+
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -95,3 +97,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = 'menu'
+
+LOGOUT_REDIRECT_URL = 'login'

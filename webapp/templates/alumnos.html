@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Alumnos - Investigadores App{% endblock %}
+{% block title %}Alumnos{% endblock %}
 
 {% block content %}
     <h1>Gestión de Alumnos</h1>
@@ -51,7 +51,7 @@
     </div>
 
     <div id="modalFormulario" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
-        <div style="background-color: white; width: 500px; margin: 50px auto; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        <div style="background-color: white; width: 500px; margin: 50px auto; padding: 50px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
             <h2 id="tituloModal">Agregar Nuevo Alumno</h2>
             
             <form id="formularioAlumno" method="post" action="{% url 'guardar_alumno' %}">

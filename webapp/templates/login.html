@@ -1,0 +1,50 @@
+{% extends 'base_auth.html' %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: -20px;">
+    <div style="width: 400px; padding: 50px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="text-align:center">Iniciar Sesión</h2>
+        
+        <form method="post" action="{% url 'login' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}" autocomplete="off">
+            {% csrf_token %}
+            <div style="margin-bottom: 15px;">
+                <label for="id_username" style="display: block; margin-bottom: 5px; font-weight: bold;">Usuario:</label>
+                <input type="text" name="username" id="id_username" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label for="id_password" style="display: block; margin-bottom: 5px; font-weight: bold;">Contraseña:</label>
+                <input type="password" name="password" id="id_password" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button type="submit" style="background-color: #3498db; color: white; border: none; padding: 10px 15px; border-radius: 4px; width: 100%; cursor: pointer;">Iniciar Sesión</button>
+            </div>
+            
+            <input type="hidden" name="next" value="{% if request.GET.next %}{{ request.GET.next }}{% else %}{{ next }}{% endif %}">
+        </form>
+        
+        <div style="margin-top: 20px; text-align: center;">
+            <p>¿No tiene una cuenta? <a href="{% url 'register' %}" style="color: #3498db; text-decoration: none;">Regístrese aquí</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Prevenir el reenvío de formulario cuando se usa el botón atrás
+    if (window.history && window.history.pushState) {
+        window.history.pushState('forward', null, window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState('forward', null, window.location.href);
+        };
+    }
+    
+    // Limpiar formulario al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('id_username').value = '';
+        document.getElementById('id_password').value = '';
+    });
+</script>
+{% endblock %}
