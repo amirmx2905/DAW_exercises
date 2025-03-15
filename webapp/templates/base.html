@@ -6,43 +6,70 @@
     <title>{% block title %}Investigadores App{% endblock %}</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
         }
         .navbar {
-            background-color: #2c3e50;
+            background-color: #1e1e1e;
             overflow: hidden;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
             display: flex;
             justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding: 8px 16px;
         }
         .navbar-links {
             display: flex;
+            gap: 12px;
+            align-items: center;
         }
         .navbar-auth {
             display: flex;
+            gap: 12px;
+            align-items: center;
         }
         .navbar a {
-            float: left;
-            display: block;
-            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #b3b3b3;
             text-align: center;
-            padding: 14px 20px;
+            padding: 12px 18px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.5s;
+            font-weight: 500;
+            position: relative;
+            border-radius: 8px;
+            background-color: #252525;
+            min-width: 80px;
+            height: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         .navbar a:hover {
-            background-color: #1a2530;
+            background-color: #333;
+            color: #bb86fc;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+            transform: translateY(-2px);
         }
         .navbar a.active {
-            background-color: #3498db;
+            background-color: #4a148c;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(74, 20, 140, 0.4);
         }
         .content {
-            padding: 20px;
+            padding: 25px;
             max-width: 1200px;
             margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         
         .toast-container {
@@ -55,7 +82,7 @@
             padding: 15px 20px;
             border-radius: 4px;
             margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             max-width: 350px;
             display: flex;
             justify-content: space-between;
@@ -67,14 +94,14 @@
             animation: fadeOut 0.5s ease-out forwards;
         }
         .toast-success {
-            background-color: #d4edda;
-            color: #155724;
-            border-left: 5px solid #28a745;
+            background-color: #1f2b26;
+            color: #bb86fc;
+            border-left: 5px solid #9965f4;
         }
         .toast-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border-left: 5px solid #dc3545;
+            background-color: #2b1b25;
+            color: #cf6679;
+            border-left: 5px solid #a0333f;
         }
         .toast-close {
             background: none;
@@ -84,18 +111,47 @@
             opacity: 0.7;
             padding: 0 0 0 10px;
             line-height: 1;
+            color: inherit;
         }
         .toast-close:hover {
             opacity: 1;
         }
         .user-info {
-            color: white;
-            padding: 14px 20px;
+            color: #bb86fc;
+            padding: 12px 18px;
             display: flex;
             align-items: center;
+            background-color: #252525;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
         .user-info span {
             margin-right: 10px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #bb86fc;
+            margin-top: 0;
+        }
+        a {
+            color: #03dac6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        button {
+            background-color: #bb86fc;
+            color: #1e1e1e;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #9965f4;
+            box-shadow: 0 2px 5px rgba(187, 134, 252, 0.3);
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
@@ -104,6 +160,18 @@
         @keyframes fadeOut {
             from { opacity: 1; transform: translateY(0); }
             to { opacity: 0; transform: translateY(-20px); }
+        }
+        input, select, textarea {
+            background-color: #2e2e2e;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #bb86fc;
+            box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
         }
     </style>
 </head>

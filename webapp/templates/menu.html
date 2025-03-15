@@ -4,37 +4,70 @@
 
 {% block content %}
     <h1>Bienvenido a la Aplicación de Investigadores</h1>
-    <p>Seleccione una opción del menú superior para comenzar.</p>
+    <p>Seleccione una opción del menú superior o utilice las tarjetas para navegar.</p>
     
-    <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
-        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
-            <h3>Archivo</h3>
-            <p>Gestione archivos y configuraciones</p>
-            <a href="{% url 'archivo' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Archivo</a>
+    <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px;">
+        <div style="background-color: #252525; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-align: center; border: 1px solid #333; transition: transform 0.3s, box-shadow 0.3s;" class="menu-card">
+            <h3 style="color: #bb86fc; margin-top: 0; font-size: 22px;">Archivo</h3>
+            <p style="color: #e0e0e0; margin-bottom: 25px;">Gestione archivos y configuraciones del sistema</p>
+            <a href="{% url 'archivo' %}" style="display: inline-block; background-color: #1e1e1e; color: #bb86fc; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; border: 1px solid #bb86fc; transition: all 0.3s;">Ir a Archivo</a>
         </div>
         
-        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
-            <h3>Catálogos</h3>
-            <p>Administre los catálogos del sistema</p>
-            <a href="{% url 'catalogos' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Catálogos</a>
+        <div style="background-color: #252525; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-align: center; border: 1px solid #333; transition: transform 0.3s, box-shadow 0.3s;" class="menu-card">
+            <h3 style="color: #bb86fc; margin-top: 0; font-size: 22px;">Catálogos</h3>
+            <p style="color: #e0e0e0; margin-bottom: 25px;">Administre los catálogos y parámetros del sistema</p>
+            <a href="{% url 'catalogos' %}" style="display: inline-block; background-color: #1e1e1e; color: #bb86fc; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; border: 1px solid #bb86fc; transition: all 0.3s;">Ir a Catálogos</a>
         </div>
         
-        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
-            <h3>Alumnos</h3>
-            <p>Gestione la información de los alumnos</p>
-            <a href="{% url 'alumnos' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Alumnos</a>
+        <div style="background-color: #252525; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-align: center; border: 1px solid #333; transition: transform 0.3s, box-shadow 0.3s;" class="menu-card">
+            <h3 style="color: #bb86fc; margin-top: 0; font-size: 22px;">Alumnos</h3>
+            <p style="color: #e0e0e0; margin-bottom: 25px;">Gestione la información y expedientes de los alumnos</p>
+            <a href="{% url 'alumnos' %}" style="display: inline-block; background-color: #1e1e1e; color: #bb86fc; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; border: 1px solid #bb86fc; transition: all 0.3s;">Ir a Alumnos</a>
         </div>
         
-        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
-            <h3>Procesos</h3>
-            <p>Ejecute procesos y operaciones</p>
-            <a href="{% url 'procesos' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Procesos</a>
+        <div style="background-color: #252525; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-align: center; border: 1px solid #333; transition: transform 0.3s, box-shadow 0.3s;" class="menu-card">
+            <h3 style="color: #bb86fc; margin-top: 0; font-size: 22px;">Procesos</h3>
+            <p style="color: #e0e0e0; margin-bottom: 25px;">Ejecute procesos, cálculos y operaciones del sistema</p>
+            <a href="{% url 'procesos' %}" style="display: inline-block; background-color: #1e1e1e; color: #bb86fc; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; border: 1px solid #bb86fc; transition: all 0.3s;">Ir a Procesos</a>
         </div>
         
-        <div style="background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
-            <h3>Reportes</h3>
-            <p>Visualice y genere reportes</p>
-            <a href="{% url 'reportes' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;">Ir a Reportes</a>
+        <div style="background-color: #252525; padding: 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-align: center; border: 1px solid #333; transition: transform 0.3s, box-shadow 0.3s;" class="menu-card">
+            <h3 style="color: #bb86fc; margin-top: 0; font-size: 22px;">Reportes</h3>
+            <p style="color: #e0e0e0; margin-bottom: 25px;">Visualice, exporte y genere reportes del sistema</p>
+            <a href="{% url 'reportes' %}" style="display: inline-block; background-color: #1e1e1e; color: #bb86fc; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; border: 1px solid #bb86fc; transition: all 0.3s;">Ir a Reportes</a>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Añadir efectos hover a las tarjetas
+            const cards = document.querySelectorAll('.menu-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 8px 15px rgba(0,0,0,0.4)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 10px rgba(0,0,0,0.3)';
+                });
+            });
+            
+            // Añadir efectos hover a los enlaces
+            const links = document.querySelectorAll('.menu-card a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#bb86fc';
+                    this.style.color = '#1a1a1a';
+                    this.style.textDecoration = 'none';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '#1e1e1e';
+                    this.style.color = '#bb86fc';
+                });
+            });
+        });
+    </script>
 {% endblock %}

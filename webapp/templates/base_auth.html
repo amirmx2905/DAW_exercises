@@ -6,13 +6,18 @@
     <title>{% block title %}Investigadores App{% endblock %}</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #121212;
+            color: #e0e0e0;
+            line-height: 1.6;
+            background-image: linear-gradient(to bottom right, #1a1a1a, #121212);
+            background-attachment: fixed;
+            min-height: 100vh;
         }
         .content {
-            padding: 20px;
+            padding: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -27,7 +32,7 @@
             padding: 15px 20px;
             border-radius: 4px;
             margin-bottom: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             max-width: 350px;
             display: flex;
             justify-content: space-between;
@@ -39,14 +44,14 @@
             animation: fadeOut 0.5s ease-out forwards;
         }
         .toast-success {
-            background-color: #d4edda;
-            color: #155724;
-            border-left: 5px solid #28a745;
+            background-color: #1f2b26;
+            color: #bb86fc;
+            border-left: 5px solid #9965f4;
         }
         .toast-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border-left: 5px solid #dc3545;
+            background-color: #2b1b25;
+            color: #cf6679;
+            border-left: 5px solid #a0333f;
         }
         .toast-close {
             background: none;
@@ -56,10 +61,65 @@
             opacity: 0.7;
             padding: 0 0 0 10px;
             line-height: 1;
+            color: inherit;
         }
         .toast-close:hover {
             opacity: 1;
         }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #bb86fc;
+            margin-top: 0;
+        }
+        
+        a {
+            color: #03dac6;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #00b3a6;
+        }
+        
+        button {
+            background-color: #bb86fc;
+            color: #1e1e1e;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #9965f4;
+            box-shadow: 0 2px 5px rgba(187, 134, 252, 0.3);
+        }
+        
+        input, select, textarea {
+            background-color: #2e2e2e;
+            border: 1px solid #444;
+            color: #e0e0e0;
+            padding: 10px;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #bb86fc;
+            box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #bb86fc;
+            font-weight: 500;
+        }
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
