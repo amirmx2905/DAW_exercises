@@ -103,19 +103,6 @@
             color: #cf6679;
             border-left: 5px solid #a0333f;
         }
-        .toast-close {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0.7;
-            padding: 0 0 0 10px;
-            line-height: 1;
-            color: inherit;
-        }
-        .toast-close:hover {
-            opacity: 1;
-        }
         .user-info {
             color: #bb86fc;
             padding: 12px 18px;
@@ -208,7 +195,6 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        // Función para mostrar toasts
         function showToast(message, type = 'success') {
             const toastContainer = document.getElementById('toastContainer');
             
@@ -218,15 +204,7 @@
             const messageSpan = document.createElement('span');
             messageSpan.textContent = message;
             
-            const closeBtn = document.createElement('button');
-            closeBtn.className = 'toast-close';
-            closeBtn.innerHTML = '&times;';
-            closeBtn.onclick = function() {
-                fadeOutToast(toast);
-            };
-            
             toast.appendChild(messageSpan);
-            toast.appendChild(closeBtn);
             toastContainer.appendChild(toast);
             
             setTimeout(() => {
@@ -247,14 +225,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Mostrar mensajes
             {% if messages %}
                 {% for message in messages %}
                     showToast("{{ message }}", "{{ message.tags }}");
                 {% endfor %}
             {% endif %}
             
-            // Prevenir navegación hacia atrás después de cerrar sesión
             {% if not user.is_authenticated %}
                 const isPrivatePage = ['/', '/archivo/', '/catalogos/', '/alumnos/', '/procesos/', '/reportes/'].includes(window.location.pathname);
                 if (isPrivatePage) {
@@ -262,13 +238,10 @@
                 }
             {% endif %}
             
-            // Configurar el enlace de cierre de sesión
             const logoutLink = document.getElementById('logoutLink');
             if (logoutLink) {
                 logoutLink.addEventListener('click', function(e) {
-                    // Forzar la recarga después de cerrar sesión para evitar problemas de navegación
                     e.preventDefault();
-                    // Hacer una solicitud para cerrar sesión
                     fetch("{% url 'logout' %}", {
                         method: 'POST',
                         headers: {
@@ -277,7 +250,6 @@
                         },
                         credentials: 'same-origin'
                     }).then(() => {
-                        // Invalidar historial de navegación y redirigir a login
                         window.location.replace("{% url 'login' %}");
                     });
                     return false;
@@ -285,14 +257,10 @@
             }
         });
 
-        // Script para impedir navegación hacia atrás después del logout
         (function() {
-            // Verificar si estamos en una página protegida
             {% if user.is_authenticated %}
-                // Estamos autenticados, configurar para detectar cambios de sesión
                 window.addEventListener('pageshow', function(event) {
                     if (event.persisted) {
-                        // La página se cargó desde el caché, verificar autenticación
                         fetch("{% url 'check_auth' %}", {
                             method: 'GET',
                             credentials: 'same-origin'
@@ -300,17 +268,14 @@
                         .then(response => response.json())
                         .then(data => {
                             if (!data.authenticated) {
-                                // No estamos autenticados, ir a login
                                 window.location.replace("{% url 'login' %}");
                             }
                         })
                         .catch(() => {
-                            // Error de red, seguir navegando normalmente
                         });
                     }
                 });
             {% else %}
-                // No estamos autenticados, prevenir navegación atrás a páginas protegidas
                 window.history.forward();
             {% endif %}
         })();

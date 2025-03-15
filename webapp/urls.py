@@ -13,8 +13,6 @@ urlpatterns = [
     path('alumnos/', alumno_view, name='alumnos'),
     path('alumnos/guardar/', guardar_alumno, name='guardar_alumno'),
     path('alumnos/eliminar/', eliminar_alumno, name='eliminar_alumno'),
-    
-    # URLs de autenticación
     path('login/', login_view, name='login'),
     path('register/', register_view, name='register'),
     path('logout/', logout_view, name='logout'),
