@@ -2,9 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from ..models import Alumno
 from django.views.decorators.http import require_POST
+from django.core.paginator import Paginator
 
 def alumno_view(request):
-    alumnos = Alumno.objects.all()
+    alumnos_list = Alumno.objects.all()
+    paginator = Paginator(alumnos_list, 10)  # 10 alumnos por página
+    page_number = request.GET.get('page')
+    alumnos = paginator.get_page(page_number)
     return render(request, 'alumnos.html', {'modulo': 'Alumnos', 'alumnos': alumnos})
 
 @require_POST

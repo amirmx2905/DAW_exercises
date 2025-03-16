@@ -48,6 +48,15 @@
                 {% endif %}
             </tbody>
         </table>
+        <div style="margin: 10px; text-align: center;">
+            {% if alumnos.has_previous %}
+                <a href="?page={{ alumnos.previous_page_number }}" style="margin-right: 10px; color: #bb86fc; text-decoration: none;">Anterior</a>
+            {% endif %}
+            <span style="color: #e0e0e0;">Página {{ alumnos.number }} de {{ alumnos.paginator.num_pages }}</span>
+            {% if alumnos.has_next %}
+                <a href="?page={{ alumnos.next_page_number }}" style="margin-left: 10px; color: #bb86fc; text-decoration: none;">Siguiente</a>
+            {% endif %}
+        </div>
     </div>
 
     <div id="modalFormulario" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">

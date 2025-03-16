@@ -13,5 +13,5 @@ class Alumno(models.Model):
     
     class Meta:
         managed = False
-        db_table = 'database"."alumnos'
+        db_table = 'alumnos'
         app_label = 'webapp'
