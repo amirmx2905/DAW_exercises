@@ -45,22 +45,17 @@ pip install -r requirements.txt
 
 - Asegúrate de tener PostgreSQL instalado y ejecutándose.
 - Crea una base de datos y un usuario con los permisos necesarios.
-- Actualiza las credenciales de la base de datos en el archivo backend/settings.py:
+- Copia el archivo .env.example y renombralo como .env
+- Actualiza las credenciales de la base de datos en el archivo .env:
 
 ```bash
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nombrebasedatos',
-        'USER': 'usuario',
-        'PASSWORD': 'contraseña',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'OPTIONS': {
-            'options': '-c search_path=database'
-        }
-    }
-}
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=defaultdb
+DB_USER=user
+DB_PASSWORD=password
+DB_HOST=host
+DB_PORT=port
+DB_OPTIONS=searchpath (si es necesario)
 ```
 
 ### 5. Aplicar Migraciones
