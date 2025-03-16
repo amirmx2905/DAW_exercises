@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.gzip.GZipMiddleware',  # Añadir al inicio
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,6 +75,8 @@ DATABASES = {
         }
     }
 }
+
+DATABASES['default']['CONN_MAX_AGE'] = 600
 
 AUTH_PASSWORD_VALIDATORS = [
     {
